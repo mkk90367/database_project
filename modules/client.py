@@ -21,3 +21,18 @@ def pobierz_dane(email):
     location = d[0][1]
     gen = d[0][2]
     clicid = d[0][3]
+	
+def logi(root):
+    try:
+        bg.destroy()
+    except:
+        pass
+    l.log(root)
+	
+def aplikuj(table):
+  selectedindex = table.focus()
+  
+  mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+  cur = mycon.cursor()
+  mycon.close()
