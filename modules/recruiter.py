@@ -20,3 +20,11 @@ def uzyskajInformacje(email):
     company = d[0][1]
     gen = d[0][2]
     recid = d[0][3]
+
+def logi(root):
+    try:
+        bg.destroy()
+    except:
+        pass
+    l.log(root)
+
