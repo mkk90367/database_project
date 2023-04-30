@@ -28,3 +28,16 @@ def logi(root):
         pass
     l.log(root)
 
+# ---------------------------------------------------------------------------------------------------------------------------
+def rekruter(root, email1):
+    global email
+    email = email1
+    bg = Frame(root, width=1050, height=700)
+    bg.place(x=0, y=0)
+
+    uzyskajInformacje(email)
+
+    bg.load = PhotoImage(file=f'elements\\bg{gen}.png')
+    img = Label(root, image=bg.load)
+    img.place(x=0, y=0)
+
