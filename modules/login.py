@@ -25,7 +25,7 @@ def sukces(root, email1):
     print(q)
 
     if q[0][0] == "recruiter":
-        rec(root, email1)
+        rekruter(root, email1)
     else:
         cli(root, email1)
 
