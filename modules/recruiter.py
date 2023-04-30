@@ -41,3 +41,14 @@ def rekruter(root, email1):
     img = Label(root, image=bg.load)
     img.place(x=0, y=0)
 
+    # pasek nawigacyjny
+    nm = Label(root, text=f'{name}', font=(
+        'normal', 36, 'bold'), bg="#ffffff", fg="#0A3D62")
+    nm.place(x=300, y=50)
+    cp = Label(root, text=f'{company}', font=(
+        'normal', 24), bg="#ffffff", fg="#0A3D62")
+    cp.place(x=300, y=120)
+    bn = Button(root, text="WYLOGOWANIE", font=(
+        'normal', 20), bg="#b32e2e", fg="#ffffff", command=lambda: logi(root))
+    bn.place(x=800, y=75)
+
