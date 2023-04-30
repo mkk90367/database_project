@@ -65,3 +65,14 @@ def rekruter(root, email1):
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=app)
     ap.grid(row=2, column=0, padx=80, pady=40)
 
+    # prawa czesc
+    global rt, tab, bgr
+    rt = Frame(root, width=540, height=420, bg="#ffffff")
+    rt.place(x=450, y=220)
+    tab = Frame(root, bg="#FFFFFF")
+    tab.place(x=460, y=300, width=520, height=350)
+    bgrf = Frame(root, width=540, height=420)
+    bgrf.load = PhotoImage(file="elements\\bgr.png")
+    bgr = Label(root, image=bgrf.load, bg="#00b9ed")
+    bgr.place(x=440, y=210)
+
