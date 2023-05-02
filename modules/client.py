@@ -66,7 +66,7 @@ def usun(table):
     mycon.commit()
     mycon.close()
     messagebox.showinfo('Twój wniosek został złożony')
-    myapp()
+    moje_aplikacje()
 	
 def sortuj_wszystkiePrace(table):
     criteria = search_d.get()
@@ -87,4 +87,21 @@ def sortuj_wszystkiePrace(table):
                 r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]))
             i += 1
 
-
+def sortuj_mojeAplikacje(table):
+    criteria = search_d.get()
+    if(criteria == "Select"):
+        pass
+    else:
+        table.delete(*table.get_children())
+        mycon = sql.connect(host='localhost', user='root',
+                            passwd=user_pwd, database='mydb')
+        cur = mycon.cursor()
+        cur.execute(
+            f'SELECT application.aid,job.JobRole, job.JobType, recruiter.CompanyName, recruiter.CompanyLocation, job.qualification, job.minexp, job.salary FROM application JOIN recruiter ON application.rid=recruiter.rid JOIN job ON application.jid=job.jid where application.CID={clicid} order by {criteria}')
+        jobs = cur.fetchall()
+        mycon.close()
+        i = 0
+        for r in jobs:
+            table.insert('', i, text="", values=(
+                r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]))
+            i += 1
