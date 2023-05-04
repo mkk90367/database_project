@@ -105,3 +105,18 @@ def sortuj_mojeAplikacje(table):
             table.insert('', i, text="", values=(
                 r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]))
             i += 1
+
+def wyswietl_prace(table):
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    cur.execute(
+        f'select job.JID,job.JobRole,job.JobType, recruiter.CompanyName, recruiter.CompanyLocation, job.Qualification, job.MinExp, job.Salary from mydb.job JOIN mydb.recruiter ON job.rid=recruiter.rid')
+    jobs = cur.fetchall()
+    mycon.close()
+    i = 0
+    for r in jobs:
+        table.insert('', i, text="", values=(
+            r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]))
+        i += 1
+		
