@@ -119,4 +119,18 @@ def wyswietl_prace(table):
         table.insert('', i, text="", values=(
             r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]))
         i += 1
-		
+
+def wyswietl_aplikacje(table):
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    cur.execute(
+        f'SELECT application.aid,job.JobRole, job.JobType, recruiter.CompanyName, recruiter.CompanyLocation, job.qualification, job.minexp, job.salary FROM application JOIN recruiter ON application.rid=recruiter.rid JOIN job ON application.jid=job.jid where application.CID={clicid}')
+    applications = cur.fetchall()
+    mycon.close()
+    print(applications)
+    i = 0
+    for x in applications:
+        table.insert('', i, text="", values=(
+            x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7]))
+        i += 1		
