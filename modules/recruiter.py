@@ -142,3 +142,20 @@ def przekazOfertePracy():
     if role1 and jtype1 and qual1 and exp1 and sal1:
         if jtype1 == "Select":
             messagebox.showinfo('UWAGA!', 'Prosze wprowadzic typ pracy')
+        else:
+            exe1 = f'INSERT INTO mydb.Job(RID, JID, JobRole, JobType, Qualification, MinExp, Salary) VALUES({recid}, NULL, "{role1}", "{jtype1}", "{qual1}", {exp1}, {sal1})'
+            try:
+                mycon = sql.connect(host='localhost', user='root',
+                                    passwd=user_pwd, database='mydb')
+                cur = mycon.cursor()
+                cur.execute(exe1)
+                role.delete(0, END)
+                jtype.delete(0, END)
+                qual.delete(0, END)
+                exp.delete(0, END)
+                sal.delete(0, END)
+                mycon.commit()
+                mycon.close()
+                messagebox.showinfo('SUKCES!', 'Pomyslnie utworzono oferte pracy')
+            except:
+                pass
