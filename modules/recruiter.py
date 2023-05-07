@@ -138,3 +138,4 @@ def przekazOfertePracy():
     qual1 = qual.get()
     exp1 = exp.get()
     sal1 = sal.get()
+    print(role1, jtype1, qual1, exp1, sal1)
