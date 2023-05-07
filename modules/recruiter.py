@@ -131,4 +131,10 @@ def utworz():
                  fg="#FFFFFF", command=przekazOfertePracy)
     btn.grid(row=5, column=1, pady=15)
     
-    
+def przekazOfertePracy():
+    global role1, jtype1, qual1, exp1, sal1
+    role1 = role.get()
+    jtype1 = jtype.get()
+    qual1 = qual.get()
+    exp1 = exp.get()
+    sal1 = sal.get()
