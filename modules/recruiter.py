@@ -120,3 +120,10 @@ def utworz():
     jtype['values'] = ('Select', 'FullTime', 'PartTime', 'Intern')
     jtype.current(0)
     jtype.grid(row=1, column=1, pady=10, padx=10)
+    qual = Entry(tab, placeholder="Wprowadz kwalifikacje zaw.")
+    qual.grid(row=2, column=1, pady=10, padx=10)
+    exp = Entry(tab, placeholder="Wprowadz minimalne dosw.")
+    exp.grid(row=3, column=1, pady=10, padx=10)
+    sal = Entry(tab, placeholder="Wprowadz oczekiwane zarobki")
+    sal.grid(row=4, column=1, pady=10, padx=10)
+    
