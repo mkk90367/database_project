@@ -108,3 +108,8 @@ def utworz():
         'normal', 18, 'bold'), bg="#FFFFFF")
     sal_l.grid(row=4, column=0, pady=10, padx=10)
 
+    # Wpisy wprowadzane za pomocą Entry
+    style = ttk.Style(tab)
+    style.configure("TCombobox", background="white",
+                    foreground="#696969")
+
