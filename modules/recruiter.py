@@ -91,3 +91,20 @@ def utworz():
     img = Label(rt, image=f1.load, bg="#FFFFFF")
     img.grid(row=0, column=1, padx=150, pady=10)
 
+    # Etykiety
+    role_l = Label(tab, text="Rola :", font=(
+        'normal', 18, 'bold'), bg="#FFFFFF")
+    role_l.grid(row=0, column=0, pady=10, padx=10)
+    type_l = Label(tab, text="Typ :", font=(
+        'normal', 18, 'bold'), bg="#FFFFFF")
+    type_l.grid(row=1, column=0, pady=10, padx=10)
+    qual_l = Label(tab, text="Kwalifikacje :", font=(
+        'normal', 18, 'bold'), bg="#FFFFFF")
+    qual_l.grid(row=2, column=0, pady=10, padx=10)
+    exp_l = Label(tab, text="Doswiadczenie :", font=(
+        'normal', 18, 'bold'), bg="#FFFFFF")
+    exp_l.grid(row=3, column=0, pady=10, padx=10)
+    sal_l = Label(tab, text="Placa :", font=(
+        'normal', 18, 'bold'), bg="#FFFFFF")
+    sal_l.grid(row=4, column=0, pady=10, padx=10)
+
