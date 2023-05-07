@@ -115,4 +115,8 @@ def utworz():
 
     role = Entry(tab, placeholder="Wprowadz stanowisko")
     role.grid(row=0, column=1, pady=10, padx=10)
-    
+    jtype = ttk.Combobox(tab, font=("normal", 18),
+                         width=23, state='readonly')
+    jtype['values'] = ('Select', 'FullTime', 'PartTime', 'Intern')
+    jtype.current(0)
+    jtype.grid(row=1, column=1, pady=10, padx=10)
