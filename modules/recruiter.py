@@ -127,3 +127,6 @@ def utworz():
     sal = Entry(tab, placeholder="Wprowadz oczekiwane zarobki")
     sal.grid(row=4, column=1, pady=10, padx=10)
     
+    btn = Button(tab, text="Przekaz", font=(20), bg="#45CE30",
+                 fg="#FFFFFF", command=przekazOfertePracy)
+    btn.grid(row=5, column=1, pady=15)
