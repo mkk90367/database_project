@@ -55,13 +55,13 @@ def rekruter(root, email1):
     # lewa czesc
     lf = Frame(root, width=330, height=440, bg="#ffffff")
     lf.place(x=60, y=220)
-    cj = Button(lf, text="Post a Job", font=(
-        'normal', 20), bg="#b32e2e", fg="#ffffff", command=create)
+    cj = Button(lf, text="Umiesc oferte pracy", font=(
+        'normal', 20), bg="#b32e2e", fg="#ffffff", command=utworz)
     cj.grid(row=0, column=0, padx=80, pady=40)
-    pj = Button(lf, text="Posted Jobs", font=(
+    pj = Button(lf, text="Zamieszczone oferty", font=(
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=posted)
     pj.grid(row=1, column=0, padx=80, pady=40)
-    ap = Button(lf, text="Applications", font=(
+    ap = Button(lf, text="Aplikowania", font=(
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=app)
     ap.grid(row=2, column=0, padx=80, pady=40)
 
