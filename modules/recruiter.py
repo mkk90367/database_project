@@ -76,3 +76,12 @@ def rekruter(root, email1):
     bgr = Label(root, image=bgrf.load, bg="#00b9ed")
     bgr.place(x=440, y=210)
 
+# ---------------------------------------------Umiesc ogloszenie o prace---------------------------------------
+def utworz():
+    global role, jtype, qual, exp, sal
+    for widget in rt.winfo_children():
+        widget.destroy()
+    for widget in tab.winfo_children():
+        widget.destroy()
+    bgr.destroy()
+
