@@ -85,3 +85,9 @@ def utworz():
         widget.destroy()
     bgr.destroy()
 
+    # Tworzenie formy
+    f1 = Frame(rt, width=520)
+    f1.load = PhotoImage(file="elements\\create.png")
+    img = Label(rt, image=f1.load, bg="#FFFFFF")
+    img.grid(row=0, column=1, padx=150, pady=10)
+
