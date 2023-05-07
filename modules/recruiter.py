@@ -113,3 +113,6 @@ def utworz():
     style.configure("TCombobox", background="white",
                     foreground="#696969")
 
+    role = Entry(tab, placeholder="Wprowadz stanowisko")
+    role.grid(row=0, column=1, pady=10, padx=10)
+    
