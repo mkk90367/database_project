@@ -141,3 +141,4 @@ def przekazOfertePracy():
     print(role1, jtype1, qual1, exp1, sal1)
     if role1 and jtype1 and qual1 and exp1 and sal1:
         if jtype1 == "Select":
+            messagebox.showinfo('UWAGA!', 'Prosze wprowadzic typ pracy')
