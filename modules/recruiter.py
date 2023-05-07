@@ -159,3 +159,5 @@ def przekazOfertePracy():
                 messagebox.showinfo('SUKCES!', 'Pomyslnie utworzono oferte pracy')
             except:
                 pass
+    else:
+        messagebox.showinfo('UWAGA!', 'WSZYSTKIE POLA MUSZA BYC WYPELNIONE')
