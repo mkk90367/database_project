@@ -28,7 +28,7 @@ def logi(root):
         pass
     l.log(root)
 
-# ---------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------
 def rekruter(root, email1):
     global email
     email = email1
@@ -130,3 +130,5 @@ def utworz():
     btn = Button(tab, text="Przekaz", font=(20), bg="#45CE30",
                  fg="#FFFFFF", command=przekazOfertePracy)
     btn.grid(row=5, column=1, pady=15)
+    
+    
