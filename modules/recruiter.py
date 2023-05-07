@@ -139,3 +139,4 @@ def przekazOfertePracy():
     exp1 = exp.get()
     sal1 = sal.get()
     print(role1, jtype1, qual1, exp1, sal1)
+    if role1 and jtype1 and qual1 and exp1 and sal1:
