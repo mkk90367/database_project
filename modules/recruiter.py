@@ -165,3 +165,11 @@ def przekazOfertePracy():
 # ----------------------------------------------Zapytanie dotyczace opublikowanych ofert pracy-----------------
 
 
+def pokazWszystko(table):
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    cur.execute(
+        f'select RID,JID, JobRole, JobType, Qualification, MinExp, Salary FROM mydb.Job where RID={recid}')
+    all_jobs = cur.fetchall()
+    mycon.close()
