@@ -133,4 +133,31 @@ def wyswietl_aplikacje(table):
     for x in applications:
         table.insert('', i, text="", values=(
             x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7]))
-        i += 1		
+        i += 1	
+
+def dos_prace():
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    for widget in rt.winfo_children():
+        widget.destroy()
+    for widget in tab.winfo_children():
+        widget.destroy()
+    bgr.destroy()
+
+search_l = Label(rt, text="Sortuj po : ", font=(
+        'normal', 18), bg="#ffffff")
+    search_l.grid(row=0, column=0, padx=10, pady=10)
+    global search_d
+    search_d = ttk.Combobox(rt, width=12, font=(
+        'normal', 18), state='readonly')
+    search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy')
+    search_d.current(0)
+    search_d.grid(row=0, column=2, padx=0, pady=10)
+    search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'),
+                    bg="#00b9ed", fg="#ffffff", command=lambda: sortuj_wszystkiePrace(table))
+    search.grid(row=0, column=3, padx=10, pady=10, ipadx=15)
+
+    apl = Button(rt, text="Aplikuj", font=('normal', 12, 'bold'),
+                 bg="#00b9ed", fg="#ffffff", command=lambda: aplikuj(table))
+    apl.grid(row=0, column=4, padx=10, pady=10, ipadx=5)	
