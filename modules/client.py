@@ -133,4 +133,14 @@ def wyswietl_aplikacje(table):
     for x in applications:
         table.insert('', i, text="", values=(
             x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7]))
-        i += 1		
+        i += 1	
+
+def dos_prace():
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    for widget in rt.winfo_children():
+        widget.destroy()
+    for widget in tab.winfo_children():
+        widget.destroy()
+    bgr.destroy()		
