@@ -161,3 +161,7 @@ def przekazOfertePracy():
                 pass
     else:
         messagebox.showinfo('UWAGA!', 'WSZYSTKIE POLA MUSZA BYC WYPELNIONE')
+
+# ----------------------------------------------Zapytanie dotyczace opublikowanych ofert pracy-----------------
+
+
