@@ -59,7 +59,7 @@ def rekruter(root, email1):
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=utworz)
     cj.grid(row=0, column=0, padx=80, pady=40)
     pj = Button(lf, text="Zamieszczone oferty", font=(
-        'normal', 20), bg="#b32e2e", fg="#ffffff", command=posted)
+        'normal', 20), bg="#b32e2e", fg="#ffffff", command=zamieszczone)
     pj.grid(row=1, column=0, padx=80, pady=40)
     ap = Button(lf, text="Aplikowania", font=(
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=app)
