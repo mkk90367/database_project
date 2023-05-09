@@ -161,3 +161,19 @@ search_l = Label(rt, text="Sortuj po : ", font=(
     apl = Button(rt, text="Aplikuj", font=('normal', 12, 'bold'),
                  bg="#00b9ed", fg="#ffffff", command=lambda: aplikuj(table))
     apl.grid(row=0, column=4, padx=10, pady=10, ipadx=5)	
+	
+	scx = Scrollbar(tab, orient="horizontal")
+    scy = Scrollbar(tab, orient="vertical")
+
+    table = ttk.Treeview(tab, columns=('JID', 'JobRole', 'JobType', 'CompanyName', 'CompanyLocation', 'Qualification', 'MinExp', 'Salary'),
+                         xscrollcommand=scx.set, yscrollcommand=scy.set)
+    scx.pack(side="bottom", fill="x")
+    scy.pack(side="right", fill="y")
+    table.heading("JID", text="ID")
+    table.heading("JobRole", text="Stanowisko")
+    table.heading("JobType", text="Wymiar pracy")
+    table.heading("CompanyName", text='Nazwa Firmy')
+    table.heading("CompanyLocation", text="Lokalizacja firmy")
+    table.heading("Qualification", text='Kwalifikacje')
+    table.heading("MinExp", text='Minimalne Doświadczenie')
+    table.heading("Salary", text="Wynagrodzenie")
