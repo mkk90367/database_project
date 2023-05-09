@@ -48,7 +48,7 @@ def rekruter(root, email1):
     cp = Label(root, text=f'{company}', font=(
         'normal', 24), bg="#ffffff", fg="#0A3D62")
     cp.place(x=300, y=120)
-    bn = Button(root, text="WYLOGOWANIE", font=(
+    bn = Button(root, text="WYLOGUJ", font=(
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=lambda: logi(root))
     bn.place(x=800, y=75)
 
