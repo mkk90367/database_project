@@ -216,3 +216,4 @@ def usuwaniePracy(table):
     cur.execute(f'delete from mydb.job where jid={ajid}')
     mycon.commit()
     mycon.close()
+    messagebox.showinfo('Dziekuje', 'Twoja oferta pracy zostala usunieta')
