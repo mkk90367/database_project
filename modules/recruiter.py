@@ -196,3 +196,8 @@ def sortujWszystko(table):
             f'select RID,JID, JobRole, JobType, Qualification, MinExp, Salary FROM mydb.Job where RID={recid} order by {kryteria}')
         all_jobs = cur.fetchall()
         mycon.close()
+    i = 0
+    for r in all_jobs:
+        table.insert('', i, text="", values=(
+            r[1], r[2], r[3], r[4], r[5], r[6]))
+        i += 1
