@@ -209,3 +209,10 @@ def usuwaniePracy(table):
     wybranyIndex = table.focus()
     wybranaWartosc = table.item(wybranyIndex, 'values')
     ajid = wybranaWartosc[0]
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    cur.execute(f'delete from mydb.application where jid={ajid}')
+    cur.execute(f'delete from mydb.job where jid={ajid}')
+    mycon.commit()
+    mycon.close()
