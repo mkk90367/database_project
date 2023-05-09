@@ -59,7 +59,7 @@ def rekruter(root, email1):
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=utworz)
     cj.grid(row=0, column=0, padx=80, pady=40)
     pj = Button(lf, text="Zamieszczone oferty", font=(
-        'normal', 20), bg="#b32e2e", fg="#ffffff", command=posted)
+        'normal', 20), bg="#b32e2e", fg="#ffffff", command=zamieszczone)
     pj.grid(row=1, column=0, padx=80, pady=40)
     ap = Button(lf, text="Aplikowania", font=(
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=app)
@@ -161,3 +161,60 @@ def przekazOfertePracy():
                 pass
     else:
         messagebox.showinfo('UWAGA!', 'WSZYSTKIE POLA MUSZA BYC WYPELNIONE')
+
+# ----------------------------------------------Zapytanie dotyczace opublikowanych ofert pracy-----------------
+
+
+def pokazWszystko(table):
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    cur.execute(
+        f'select RID,JID, JobRole, JobType, Qualification, MinExp, Salary FROM mydb.Job where RID={recid}')
+    all_jobs = cur.fetchall()
+    mycon.close()
+    i = 0
+    for r in all_jobs:
+        table.insert('', i, text="", values=(
+            r[1], r[2], r[3], r[4], r[5], r[6]))
+        i += 1
+
+# --------------------------------------------Sortowanie zapytan-----------------------------------------------
+
+
+def sortujWszystko(table):
+    kryteria = search_d.get()
+    if(kryteria == "Select"):
+        pass
+    else:
+        table.delete(*table.get_children())
+        mycon = sql.connect(host='localhost', user='root',
+                            passwd=user_pwd, database='mydb')
+
+        cur = mycon.cursor()
+        cur.execute(
+            f'select RID,JID, JobRole, JobType, Qualification, MinExp, Salary FROM mydb.Job where RID={recid} order by {kryteria}')
+        all_jobs = cur.fetchall()
+        mycon.close()
+    i = 0
+    for r in all_jobs:
+        table.insert('', i, text="", values=(
+            r[1], r[2], r[3], r[4], r[5], r[6]))
+        i += 1
+
+# -------------------------------------------------Usuwanie zamieszczonej oferty pracy--------------------------------------
+
+
+def usuwaniePracy(table):
+    wybranyIndex = table.focus()
+    wybranaWartosc = table.item(wybranyIndex, 'values')
+    ajid = wybranaWartosc[0]
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    cur.execute(f'delete from mydb.application where jid={ajid}')
+    cur.execute(f'delete from mydb.job where jid={ajid}')
+    mycon.commit()
+    mycon.close()
+    messagebox.showinfo('Dziekuje', 'Twoja oferta pracy zostala usunieta')
+    zamieszczone()
