@@ -217,3 +217,4 @@ def usuwaniePracy(table):
     mycon.commit()
     mycon.close()
     messagebox.showinfo('Dziekuje', 'Twoja oferta pracy zostala usunieta')
+    zamieszczone()
