@@ -205,3 +205,7 @@ def sortujWszystko(table):
 # -------------------------------------------------Usuwanie zamieszczonej oferty pracy--------------------------------------
 
 
+def usuwaniePracy(table):
+    wybranyIndex = table.focus()
+    wybranaWartosc = table.item(wybranyIndex, 'values')
+    ajid = wybranaWartosc[0]
