@@ -203,4 +203,8 @@ def moje_aplikacje():
         widget.destroy()
     for widget in tab.winfo_children():
         widget.destroy()
-    bgr.destroy()	
+    bgr.destroy()
+	
+    search_l = Label(rt, text="Sortuj po : ", font=('normal', 18), bg="#ffffff")
+    search_l.grid(row=0, column=0, padx=10, pady=10)
+    global search_d	
