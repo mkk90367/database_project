@@ -182,3 +182,6 @@ search_l = Label(rt, text="Sortuj po : ", font=(
 
     scx.config(command=table.xview)
     scy.config(command=table.yview)
+	
+	table.column("JID", width=100)
+    table.column("JobRole", width=150)
