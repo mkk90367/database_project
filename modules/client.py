@@ -177,3 +177,11 @@ search_l = Label(rt, text="Sortuj po : ", font=(
     table.heading("Qualification", text='Kwalifikacje')
     table.heading("MinExp", text='Minimalne Doświadczenie')
     table.heading("Salary", text="Wynagrodzenie")
+	
+	table['show'] = 'headings'
+
+    scx.config(command=table.xview)
+    scy.config(command=table.yview)
+	
+	table.column("JID", width=100)
+    table.column("JobRole", width=150)
