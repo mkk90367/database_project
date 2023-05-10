@@ -195,4 +195,12 @@ search_l = Label(rt, text="Sortuj po : ", font=(
     table.pack(fill="both", expand=1)
     mycon.close()
 	
-	
+def moje_aplikacje():
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    for widget in rt.winfo_children():
+        widget.destroy()
+    for widget in tab.winfo_children():
+        widget.destroy()
+    bgr.destroy()	
