@@ -202,7 +202,7 @@ def sortujWszystko(table):
             r[1], r[2], r[3], r[4], r[5], r[6]))
         i += 1
 
-# -------------------------------------------------Usuwanie zamieszczonej oferty pracy--------------------------------------
+# -------------------------------------------------Usuwanie zamieszczonej oferty pracy-------------------------
 
 
 def usuwaniePracy(table):
@@ -218,3 +218,13 @@ def usuwaniePracy(table):
     mycon.close()
     messagebox.showinfo('Dziekuje', 'Twoja oferta pracy zostala usunieta')
     zamieszczone()
+
+# ----------------------------------------------Oferty zamieszczone przez rekrutera----------------------------
+
+
+def zamieszczone():
+    for widget in rt.winfo_children():
+        widget.destroy()
+    for widget in tab.winfo_children():
+        widget.destroy()
+    bgr.destroy()
