@@ -185,3 +185,14 @@ search_l = Label(rt, text="Sortuj po : ", font=(
 	
 	table.column("JID", width=100)
     table.column("JobRole", width=150)
+	table.column("JobType", width=150)
+    table.column("CompanyName", width=150)
+    table.column("CompanyLocation", width=150)
+    table.column("Qualification", width=100)
+    table.column("MinExp", width=150)
+    table.column("Salary", width=150)
+    wyswietl_prace(table)
+    table.pack(fill="both", expand=1)
+    mycon.close()
+	
+	
