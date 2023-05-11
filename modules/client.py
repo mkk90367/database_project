@@ -252,3 +252,15 @@ def moje_aplikacje():
     wyswietl_aplikacje(table)
     table.pack(fill="both", expand=1)
     mycon.close()
+	
+def client(root, email1):
+    global email
+    email = email1
+    bg = Frame(root, width=1050, height=700)
+    bg.place(x=0, y=0)
+
+    pobierz_dane(email)
+
+    bg.load = PhotoImage(file=f'elements\\bg{gen}.png')
+    img = Label(root, image=bg.load)
+    img.place(x=0, y=0)
