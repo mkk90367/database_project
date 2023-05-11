@@ -227,3 +227,28 @@ def moje_aplikacje():
                          xscrollcommand=scx.set, yscrollcommand=scy.set)
     scx.pack(side="bottom", fill="x")
     scy.pack(side="right", fill="y")
+	
+	table.heading("AID", text="ID")
+    table.heading("JobRole", text="Stanowisko")
+    table.heading("JobType", text="Wymiar pracy")
+    table.heading("CompanyName", text='Nazwa Firmy')
+    table.heading("CompanyLocation", text="Lokalizacja firmy")
+    table.heading("Qualification", text='Kwalifikacje')
+    table.heading("MinExp", text='Minimalne Doświadczenie')
+    table.heading("Salary", text="Wynagrodzenie")
+    table['show'] = 'headings'
+
+    scx.config(command=table.xview)
+    scy.config(command=table.yview)
+
+    table.column("AID", width=50)
+    table.column("JobRole", width=150)
+    table.column("JobType", width=150)
+    table.column("CompanyName", width=150)
+    table.column("CompanyLocation", width=150)
+    table.column("Qualification", width=100)
+    table.column("MinExp", width=150)
+    table.column("Salary", width=150)
+    wyswietl_aplikacje(table)
+    table.pack(fill="both", expand=1)
+    mycon.close()
