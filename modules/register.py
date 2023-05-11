@@ -47,7 +47,7 @@ def rejestracjaDlaRekrutera(root):
     r2.render = PhotoImage(file="elements/reg_bg.png")
     img = Label(r2, image=r2.render)
     img.place(x=0, y=0)
-    name_l = Label(r2, text="Imie : ", bg='#FFFFFF', fg="#00B9ED",
+    name_l = Label(r2, text="Nazwa : ", bg='#FFFFFF', fg="#00B9ED",
                    font=('normal', 20, 'bold'))
     name_l.place(x=100, y=250)
     name = Entry(r2, placeholder='Wprowadz imie i nazwisko...', width=20)
@@ -195,7 +195,7 @@ def rejestracjaDlaKlienta(root):
     img = Label(r2, image=r2.render)
     img.place(x=0, y=0)
 
-    name_l = Label(r2, text="Name : ", bg='#FFFFFF', fg="#00B9ED",
+    name_l = Label(r2, text="Nazwa : ", bg='#FFFFFF', fg="#00B9ED",
                    font=('normal', 20, 'bold'))
     name_l.place(x=100, y=250)
     name = Entry(r2, placeholder='Wprowadz imie i nazwisko...', width=20)
