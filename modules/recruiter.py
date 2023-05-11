@@ -244,3 +244,6 @@ def zamieszczone():
     dlt = Button(rt, text="Skasuj", font=('normal', 12, 'bold'),
                  bg="#00b9ed", fg="#ffffff", command=lambda: usuwaniePracy(table))
     dlt.grid(row=0, column=4, padx=10, pady=10, ipadx=5)
+    
+    scx = Scrollbar(tab, orient="horizontal")
+    scy = Scrollbar(tab, orient="vertical")
