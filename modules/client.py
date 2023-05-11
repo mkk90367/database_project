@@ -208,3 +208,14 @@ def moje_aplikacje():
     search_l = Label(rt, text="Sortuj po : ", font=('normal', 18), bg="#ffffff")
     search_l.grid(row=0, column=0, padx=10, pady=10)
     global search_d	
+	
+	search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy')
+    search_d.current(0)
+    search_d.grid(row=0, column=2, padx=0, pady=10)
+    search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'), bg="#00b9ed",
+                    fg="#ffffff", command=lambda: sortuj_mojeAplikacje(table))
+    search.grid(row=0, column=3, padx=10, pady=10, ipadx=15)
+
+    dlt = Button(rt, text="Usuń", font=('normal', 12, 'bold'),
+                 bg="#00b9ed", fg="#ffffff", command=lambda: usun(table))
+    dlt.grid(row=0, column=4, padx=10, pady=10, ipadx=5)
