@@ -247,3 +247,6 @@ def zamieszczone():
     
     scx = Scrollbar(tab, orient="horizontal")
     scy = Scrollbar(tab, orient="vertical")
+    
+    table = ttk.Treeview(tab, columns=('JID', 'JobRole', 'JobType', 'Qualification', 'MinExp', 'Salary'),
+                         xscrollcommand=scx.set, yscrollcommand=scy.set)
