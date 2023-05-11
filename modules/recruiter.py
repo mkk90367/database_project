@@ -250,3 +250,11 @@ def zamieszczone():
     
     table = ttk.Treeview(tab, columns=('JID', 'JobRole', 'JobType', 'Qualification', 'MinExp', 'Salary'),
                          xscrollcommand=scx.set, yscrollcommand=scy.set)
+    scx.pack(side="bottom", fill="x")
+    scy.pack(side="right", fill="y")
+    table.heading("JID", text="ID_oferty_pracy")
+    table.heading("JobRole", text="Zakres_obowiaz.")
+    table.heading("JobType", text='Typ_pracy')
+    table.heading("Qualification", text='Kwalifikacje')
+    table.heading("MinExp", text='Min_doswiadcze.')
+    table.heading("Salary", text="Wynagrodzenie")
