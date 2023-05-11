@@ -185,3 +185,26 @@ search_l = Label(rt, text="Sortuj po : ", font=(
 	
 	table.column("JID", width=100)
     table.column("JobRole", width=150)
+	table.column("JobType", width=150)
+    table.column("CompanyName", width=150)
+    table.column("CompanyLocation", width=150)
+    table.column("Qualification", width=100)
+    table.column("MinExp", width=150)
+    table.column("Salary", width=150)
+    wyswietl_prace(table)
+    table.pack(fill="both", expand=1)
+    mycon.close()
+	
+def moje_aplikacje():
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    for widget in rt.winfo_children():
+        widget.destroy()
+    for widget in tab.winfo_children():
+        widget.destroy()
+    bgr.destroy()
+	
+    search_l = Label(rt, text="Sortuj po : ", font=('normal', 18), bg="#ffffff")
+    search_l.grid(row=0, column=0, padx=10, pady=10)
+    global search_d	
