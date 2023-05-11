@@ -219,3 +219,11 @@ def moje_aplikacje():
     dlt = Button(rt, text="Usuń", font=('normal', 12, 'bold'),
                  bg="#00b9ed", fg="#ffffff", command=lambda: usun(table))
     dlt.grid(row=0, column=4, padx=10, pady=10, ipadx=5)
+	
+	scx = Scrollbar(tab, orient="horizontal")
+    scy = Scrollbar(tab, orient="vertical")
+
+    table = ttk.Treeview(tab, columns=('AID', 'JobRole', 'JobType', 'CompanyName', 'CompanyLocation', 'Qualification', 'MinExp', 'Salary'),
+                         xscrollcommand=scx.set, yscrollcommand=scy.set)
+    scx.pack(side="bottom", fill="x")
+    scy.pack(side="right", fill="y")
