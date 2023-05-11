@@ -238,3 +238,9 @@ def zamieszczone():
     search_d['values'] = ('Zaznacz', 'JobRole', 'JobType')
     search_d.current(0)
     search_d.grid(row=0, column=2, padx=0, pady=10)
+    search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'),
+                    bg="#00b9ed", fg="#ffffff", command=lambda: sortujWszystko(table))
+    search.grid(row=0, column=3, padx=10, pady=10, ipadx=15)
+    dlt = Button(rt, text="Skasuj", font=('normal', 12, 'bold'),
+                 bg="#00b9ed", fg="#ffffff", command=lambda: usuwaniePracy(table))
+    dlt.grid(row=0, column=4, padx=10, pady=10, ipadx=5)
