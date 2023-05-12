@@ -131,7 +131,7 @@ def dokonczenieRekrutera(root):
     gender_l = Label(r3, text="Plec : ", bg='#FFFFFF', fg="#00B9ED",
                      font=('normal', 20, 'bold'))
     gender_l.place(x=100, y=250)
-    ttk.Radiobutton(r3, text="Mezczyzna", value="M", variable=gender).place(
+    ttk.Radiobutton(r3, text="Mezcz.", value="M", variable=gender).place(
         x=300, y=250)
     ttk.Radiobutton(r3, text="Kobieta", value="F", variable=gender).place(
         x=400, y=250)
@@ -279,7 +279,7 @@ def dokonczenieKlienta(root):
     gender_l = Label(r3, text="Plec : ", bg='#FFFFFF', fg="#00B9ED",
                      font=('normal', 20, 'bold'))
     gender_l.place(x=100, y=200)
-    ttk.Radiobutton(r3, text="Mezczyzna", value="M", variable=gender).place(
+    ttk.Radiobutton(r3, text="Mezcz.", value="M", variable=gender).place(
         x=300, y=200)
     ttk.Radiobutton(r3, text="Kobieta", value="F", variable=gender).place(
         x=400, y=200)
@@ -299,13 +299,13 @@ def dokonczenieKlienta(root):
     workxp_l = Label(r3, text="Doswiadczenie : ", bg='#FFFFFF', fg="#00B9ED",
                      font=('normal', 20, 'bold'))
     workxp_l.place(x=100, y=350)
-    workxp = Entry(r3, placeholder='Doswiadczenie w pracy(lata)', width=20)
+    workxp = Entry(r3, placeholder='Doswiad. w pracy(lata)', width=20)
     workxp.place(x=290, y=350)
 
     qualification_l = Label(r3, text="Kwalifikacje : ",
                             bg='#FFFFFF', fg="#00B9ED", font=('normal', 20, 'bold'))
     qualification_l.place(x=100, y=400)
-    qualification = Entry(r3, placeholder='Btech/BE...', width=20)
+    qualification = Entry(r3, placeholder='Dyplom inzyniera itp', width=20)
     qualification.place(x=290, y=400)
 
     skills_l = Label(r3, text="Umiejetnosci : ", bg='#FFFFFF',
