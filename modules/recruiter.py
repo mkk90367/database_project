@@ -270,5 +270,5 @@ def zamieszczone():
     table.column("Qualification", width=100)
     table.column("MinExp", width=100)
     table.column("Salary", width=150)
-
     pokazWszystko(table)
+    table.pack(fill="both", expand=1)
