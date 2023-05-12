@@ -258,3 +258,7 @@ def zamieszczone():
     table.heading("Qualification", text='Kwalifikacje')
     table.heading("MinExp", text='Min_doswiadcze.')
     table.heading("Salary", text="Wynagrodzenie")
+    
+    table['show'] = 'headings'
+    
+    
