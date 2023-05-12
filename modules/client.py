@@ -277,4 +277,14 @@ def client(root, email1):
                 bg="#b32e2e", fg="#ffffff", command=lambda: logi(root))
     bn.place(x=800, y=75)
 	
+	#Lewa
+	
+	lf = Frame(root, width=330, height=440, bg="#ffffff")
+    lf.place(x=60, y=240)
+    pj = Button(lf, text="Dostępne Prace", font=(
+        'normal', 20), bg="#b32e2e", fg="#ffffff", command=dos_prace)
+    pj.grid(row=0, column=0, padx=60, pady=70)
+    ap = Button(lf, text="Moje aplikacje", font=(
+        'normal', 20), bg="#b32e2e", fg="#ffffff", command=moje_aplikacje)
+    ap.grid(row=1, column=0, padx=60, pady=70)
 	
