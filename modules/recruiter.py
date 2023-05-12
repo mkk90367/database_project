@@ -261,4 +261,7 @@ def zamieszczone():
     
     table['show'] = 'headings'
     
+    scx.config(command=table.xview)
+    scy.config(command=table.yview)
+    
     
