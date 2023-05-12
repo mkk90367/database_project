@@ -264,4 +264,9 @@ def zamieszczone():
     scx.config(command=table.xview)
     scy.config(command=table.yview)
     
-    
+    table.column("JID", width=100)
+    table.column("JobRole", width=150)
+    table.column("JobType", width=150)
+    table.column("Qualification", width=100)
+    table.column("MinExp", width=100)
+    table.column("Salary", width=150)
