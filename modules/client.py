@@ -264,3 +264,40 @@ def client(root, email1):
     bg.load = PhotoImage(file=f'elements\\bg{gen}.png')
     img = Label(root, image=bg.load)
     img.place(x=0, y=0)
+	
+	#Góra 
+	
+    nm = Label(root, text=f'{name}', font=(
+        'normal', 36, 'bold'), bg="#ffffff", fg="#0A3D62")
+    nm.place(x=300, y=50)
+    cp = Label(root, text=f'{location}', font=(
+        'normal', 24), bg="#ffffff", fg="#0A3D62")
+    cp.place(x=300, y=120)
+    bn = Button(root, text="Wyloguj się", font=('normal', 20),
+                bg="#b32e2e", fg="#ffffff", command=lambda: logi(root))
+    bn.place(x=800, y=75)
+	
+	#Lewa
+	
+	lf = Frame(root, width=330, height=440, bg="#ffffff")
+    lf.place(x=60, y=240)
+    pj = Button(lf, text="Dostępne Prace", font=(
+        'normal', 20), bg="#b32e2e", fg="#ffffff", command=dos_prace)
+    pj.grid(row=0, column=0, padx=60, pady=70)
+    ap = Button(lf, text="Moje aplikacje", font=(
+        'normal', 20), bg="#b32e2e", fg="#ffffff", command=moje_aplikacje)
+    ap.grid(row=1, column=0, padx=60, pady=70)
+	
+	#Prawo
+	
+	
+	global rt, tab, bgr
+    rt = Frame(root, width=540, height=420, bg="#ffffff")
+    rt.place(x=450, y=220)
+    tab = Frame(root, bg="#FFFFFF")
+    tab.place(x=460, y=300, width=520, height=350)
+    bgrf = Frame(root, width=540, height=420)
+    bgrf.load = PhotoImage(file="elements\\bgr.png")
+    bgr = Label(root, image=bgrf.load, bg="#00b9ed")
+    bgr.place(x=440, y=210)
+	
