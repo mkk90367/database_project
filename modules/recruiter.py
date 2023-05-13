@@ -293,3 +293,6 @@ def aplikowania():
     search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'),
                     bg="#00b9ed", fg="#ffffff", command=lambda: sortujAplikantow(table))
     search.grid(row=0, column=3, padx=45, pady=10, ipadx=30)
+
+    scx = Scrollbar(tab, orient="horizontal")
+    scy = Scrollbar(tab, orient="vertical")
