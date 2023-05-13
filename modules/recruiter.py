@@ -281,3 +281,6 @@ def aplikowania():
     for widget in tab.winfo_children():
         widget.destroy()
     bgr.destroy()
+
+    search_l = Label(rt, text="OrderBy: ", font=('normal', 18), bg="#ffffff")
+    search_l.grid(row=0, column=0, padx=10, pady=10)
