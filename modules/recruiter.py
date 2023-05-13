@@ -311,3 +311,20 @@ def aplikowania():
     table.heading("CExp", text='Doswiadczenie')
     table.heading("CSkills", text='Umiejetnosci')
     table.heading("CQualification", text='Kwalifikacje')
+
+    table['show'] = 'headings'
+
+    scx.config(command=table.xview)
+    scy.config(command=table.yview)
+
+    table.column("JobRole", width=150)
+    table.column("CName", width=200)
+    table.column("CEmail", width=100)
+    table.column("CAge", width=50)
+    table.column("CLocation", width=150)
+    table.column("CGender", width=100)
+    table.column("CExp", width=100)
+    table.column("CSkills", width=200)
+    table.column("CQualification", width=150)
+    pokazAplikantow(table)
+    table.pack(fill="both", expand=1)
