@@ -299,3 +299,5 @@ def aplikowania():
     
     table = ttk.Treeview(tab, columns=('JobRole', 'CName', 'CEmail', 'CAge', 'CLocation', 'CGender', 'CExp', 'CSkills', 'CQualification'),
                          xscrollcommand=scx.set, yscrollcommand=scy.set)
+    scx.pack(side="bottom", fill="x")
+    scy.pack(side="right", fill="y")
