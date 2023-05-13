@@ -62,7 +62,7 @@ def rekruter(root, email1):
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=zamieszczone)
     pj.grid(row=1, column=0, padx=80, pady=40)
     ap = Button(lf, text="Aplikowania", font=(
-        'normal', 20), bg="#b32e2e", fg="#ffffff", command=app)
+        'normal', 20), bg="#b32e2e", fg="#ffffff", command=aplikowania)
     ap.grid(row=2, column=0, padx=80, pady=40)
 
     # prawa czesc
@@ -272,3 +272,12 @@ def zamieszczone():
     table.column("Salary", width=150)
     pokazWszystko(table)
     table.pack(fill="both", expand=1)
+    
+    
+# -----------------------------------------Aplikowania na oferty zamieszczone przez rekrutera------------------
+def aplikowania():
+    for widget in rt.winfo_children():
+        widget.destroy()
+    for widget in tab.winfo_children():
+        widget.destroy()
+    bgr.destroy()
