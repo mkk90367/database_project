@@ -296,3 +296,6 @@ def aplikowania():
 
     scx = Scrollbar(tab, orient="horizontal")
     scy = Scrollbar(tab, orient="vertical")
+    
+    table = ttk.Treeview(tab, columns=('JobRole', 'CName', 'CEmail', 'CAge', 'CLocation', 'CGender', 'CExp', 'CSkills', 'CQualification'),
+                         xscrollcommand=scx.set, yscrollcommand=scy.set)
