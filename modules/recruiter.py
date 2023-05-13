@@ -284,3 +284,9 @@ def aplikowania():
 
     search_l = Label(rt, text="OrderBy: ", font=('normal', 18), bg="#ffffff")
     search_l.grid(row=0, column=0, padx=10, pady=10)
+    global search_d
+    search_d = ttk.Combobox(rt, width=12, font=(
+        'normal', 18), state='readonly')
+    search_d['values'] = ('Zaznacz', 'JobRole', 'CName', 'CLocation')
+    search_d.current(0)
+    search_d.grid(row=0, column=2, padx=10, pady=10)
