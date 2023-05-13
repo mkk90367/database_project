@@ -301,3 +301,13 @@ def aplikowania():
                          xscrollcommand=scx.set, yscrollcommand=scy.set)
     scx.pack(side="bottom", fill="x")
     scy.pack(side="right", fill="y")
+    
+    table.heading("JobRole", text="Zakres_obowiaz.")
+    table.heading("CName", text='Nazwa_aplikanta')
+    table.heading("CEmail", text='Email')
+    table.heading("CAge", text='Wiek')
+    table.heading("CLocation", text='Lokalizacja')
+    table.heading("CGender", text='Plec')
+    table.heading("CExp", text='Doswiadczenie')
+    table.heading("CSkills", text='Umiejetnosci')
+    table.heading("CQualification", text='Kwalifikacje')
