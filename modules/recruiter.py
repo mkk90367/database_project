@@ -328,3 +328,21 @@ def aplikowania():
     table.column("CQualification", width=150)
     pokazAplikantow(table)
     table.pack(fill="both", expand=1)
+    
+# ----------------------------------------------Aplikanci------------------------------------------------------
+
+
+def pokazAplikantow(table):
+    mycon = sql.connect(host='localhost', user='root',
+                        passwd=user_pwd, database='mydb')
+    cur = mycon.cursor()
+    cur.execute(
+        f'SELECT job.JobRole, client.CName, client.CEmail, client.CAge, client.CLocation, client.CGender, client.CExp, client.CSkills, client.CQualification FROM application JOIN client ON application.cid=client.CID JOIN job ON job.jid=application.jid where job.rid={recid}')
+    aplikanci = cur.fetchall()
+    mycon.close()
+    print(aplikanci)
+    i = 0
+    for x in aplikanci:
+        table.insert('', i, text="", values=(
+            x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8]))
+        i += 1
