@@ -287,7 +287,7 @@ def aplikowania():
     global search_d
     search_d = ttk.Combobox(rt, width=12, font=(
         'normal', 18), state='readonly')
-    search_d['values'] = ('Zaznacz', 'JobRole', 'CName', 'CLocation')
+    search_d['values'] = ('Zaznacz', 'Zakres_obowiaz.', 'Nazwa_aplikanta', 'Lokalizacja')
     search_d.current(0)
     search_d.grid(row=0, column=2, padx=10, pady=10)
     search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'),
@@ -350,6 +350,12 @@ def pokazAplikantow(table):
         
 def sortujAplikantow(table):
     kryteria = search_d.get()
+    if kryteria == "Zakres_obowiaz.":
+       kryteria = "JobRole"
+    elif kryteria == "Nazwa_aplikanta":
+       kryteria = "CName"
+    elif kryteria == "Lokalizacja":
+       kryteria = "CLocation"    
     if(kryteria == "Zaznacz"):
         pass
     else:
