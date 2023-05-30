@@ -42,27 +42,24 @@ def rekruter(root, email1):
     img.place(x=0, y=0)
 
     # pasek nawigacyjny
-    nm = Label(root, text=f'{name}', font=(
-        'normal', 36, 'bold'), bg="#ffffff", fg="#0A3D62")
+    nm = Label(root, text=f'{name}', font=('normal', 36, 'bold'), bg="#ffffff", fg="#0A3D62")
     nm.place(x=300, y=50)
-    cp = Label(root, text=f'{company}', font=(
-        'normal', 24), bg="#ffffff", fg="#0A3D62")
+    cp = Label(root, text=f'{company}', font=('normal', 24), bg="#ffffff", fg="#0A3D62")
     cp.place(x=300, y=120)
-    bn = Button(root, text="WYLOGUJ", font=(
-        'normal', 20), bg="#b32e2e", fg="#ffffff", command=lambda: logi(root))
+    bn = Button(root, text="Wyloguj się", font=('normal', 20), bg="#b32e2e", fg="#ffffff", command=lambda: logi(root))
     bn.place(x=800, y=75)
 
     # lewa czesc
     lf = Frame(root, width=330, height=440, bg="#ffffff")
     lf.place(x=60, y=220)
-    cj = Button(lf, text="Umiesc oferte pracy", font=(
-        'normal', 20), bg="#b32e2e", fg="#ffffff", command=utworz)
+
+    cj = Button(lf, text="Opublikuj ofertę\npracy", font=('normal', 16), bg="#b32e2e", fg="#ffffff", command=utworz)
     cj.grid(row=0, column=0, padx=80, pady=40)
-    pj = Button(lf, text="Zamieszczone oferty", font=(
-        'normal', 20), bg="#b32e2e", fg="#ffffff", command=zamieszczone)
+
+    pj = Button(lf, text="Zamieszczone\noferty pracy", font=('normal', 16), bg="#b32e2e", fg="#ffffff", command=zamieszczone)
     pj.grid(row=1, column=0, padx=80, pady=40)
-    ap = Button(lf, text="Aplikowania", font=(
-        'normal', 20), bg="#b32e2e", fg="#ffffff", command=aplikowania)
+
+    ap = Button(lf, text="Wszystkie\naplikacje", font=('normal', 16), bg="#b32e2e", fg="#ffffff", command=aplikowania)
     ap.grid(row=2, column=0, padx=80, pady=40)
 
     # prawa czesc
@@ -75,6 +72,7 @@ def rekruter(root, email1):
     bgrf.load = PhotoImage(file="elements\\bgr.png")
     bgr = Label(root, image=bgrf.load, bg="#00b9ed")
     bgr.place(x=440, y=210)
+
 
 # ---------------------------------------------Umiesc ogloszenie o prace---------------------------------------
 def utworz():
@@ -92,19 +90,19 @@ def utworz():
     img.grid(row=0, column=1, padx=150, pady=10)
 
     # Etykiety
-    role_l = Label(tab, text="Rola :", font=(
+    role_l = Label(tab, text="Stanowisko:", font=(
         'normal', 18, 'bold'), bg="#FFFFFF")
     role_l.grid(row=0, column=0, pady=10, padx=10)
-    type_l = Label(tab, text="Typ :", font=(
+    type_l = Label(tab, text="Wymiar pracy :", font=(
         'normal', 18, 'bold'), bg="#FFFFFF")
     type_l.grid(row=1, column=0, pady=10, padx=10)
     qual_l = Label(tab, text="Kwalifikacje :", font=(
         'normal', 18, 'bold'), bg="#FFFFFF")
     qual_l.grid(row=2, column=0, pady=10, padx=10)
-    exp_l = Label(tab, text="Doswiadczenie :", font=(
+    exp_l = Label(tab, text="Doświadczenie :", font=(
         'normal', 18, 'bold'), bg="#FFFFFF")
     exp_l.grid(row=3, column=0, pady=10, padx=10)
-    sal_l = Label(tab, text="Placa :", font=(
+    sal_l = Label(tab, text="Wynagrodzenie :", font=(
         'normal', 18, 'bold'), bg="#FFFFFF")
     sal_l.grid(row=4, column=0, pady=10, padx=10)
 
@@ -117,7 +115,7 @@ def utworz():
     role.grid(row=0, column=1, pady=10, padx=10)
     jtype = ttk.Combobox(tab, font=("normal", 18),
                          width=23, state='readonly')
-    jtype['values'] = ('Select', 'FullTime', 'PartTime', 'Intern')
+    jtype['values'] = ('Umowa o pracę', 'Umowa zlecenie','B2B', 'Staż' )
     jtype.current(0)
     jtype.grid(row=1, column=1, pady=10, padx=10)
     qual = Entry(tab, placeholder="Wprowadz kwalifikacje zaw.")
@@ -127,7 +125,7 @@ def utworz():
     sal = Entry(tab, placeholder="Wprowadz oczekiwane zarobki")
     sal.grid(row=4, column=1, pady=10, padx=10)
     
-    btn = Button(tab, text="Przekaz", font=(20), bg="#45CE30",
+    btn = Button(tab, text="Wyślij", font=(20), bg="#45CE30",
                  fg="#FFFFFF", command=przekazOfertePracy)
     btn.grid(row=5, column=1, pady=15)
     
@@ -141,7 +139,7 @@ def przekazOfertePracy():
     print(role1, jtype1, qual1, exp1, sal1)
     if role1 and jtype1 and qual1 and exp1 and sal1:
         if jtype1 == "Select":
-            messagebox.showinfo('UWAGA!', 'Prosze wprowadzic typ pracy')
+            messagebox.showinfo('UWAGA!', 'Prosze wprowadzić typ pracy')
         else:
             exe1 = f'INSERT INTO mydb.Job(RID, JID, JobRole, JobType, Qualification, MinExp, Salary) VALUES({recid}, NULL, "{role1}", "{jtype1}", "{qual1}", {exp1}, {sal1})'
             try:
@@ -156,11 +154,11 @@ def przekazOfertePracy():
                 sal.delete(0, END)
                 mycon.commit()
                 mycon.close()
-                messagebox.showinfo('SUKCES!', 'Pomyslnie utworzono oferte pracy')
+                messagebox.showinfo('SUKCES!', 'Pomyślnie utworzono oferte pracy')
             except:
                 pass
     else:
-        messagebox.showinfo('UWAGA!', 'WSZYSTKIE POLA MUSZA BYC WYPELNIONE')
+        messagebox.showinfo('UWAGA!', 'Uwaga wypełnij wyszystkiego obowiązkowe pola')
 
 # ----------------------------------------------Zapytanie dotyczace opublikowanych ofert pracy-----------------
 
@@ -184,23 +182,31 @@ def pokazWszystko(table):
 
 def sortujWszystko(table):
     kryteria = search_d.get()
-    if(kryteria == "Select"):
-        pass
-    else:
+    if kryteria == "Stanowisko":
+        kryteria = "JobRole"
+    elif kryteria == "Wymiar Pracy":
+        kryteria = "JobType"
+    elif kryteria == "Kwalifikacje":
+        kryteria = "Qualification"
+    elif kryteria == "Doświadczenie":
+        kryteria = "MinExp"
+    elif kryteria == "Wynagrodzenie":
+        kryteria = "Salary"
+    
+    if kryteria == "Wybierz":
         table.delete(*table.get_children())
-        mycon = sql.connect(host='localhost', user='root',
-                            passwd=user_pwd, database='mydb')
-
+    else:
+        mycon = sql.connect(host='localhost', user='root', passwd=user_pwd, database='mydb')
         cur = mycon.cursor()
-        cur.execute(
-            f'select RID,JID, JobRole, JobType, Qualification, MinExp, Salary FROM mydb.Job where RID={recid} order by {kryteria}')
+        cur.execute(f'select RID,JID, JobRole, JobType, Qualification, MinExp, Salary FROM mydb.Job where RID={recid} order by {kryteria}')
         all_jobs = cur.fetchall()
         mycon.close()
-    i = 0
-    for r in all_jobs:
-        table.insert('', i, text="", values=(
-            r[1], r[2], r[3], r[4], r[5], r[6]))
-        i += 1
+
+        table.delete(*table.get_children())
+        i = 0
+        for r in all_jobs:
+            table.insert('', i, text="", values=(r[1], r[2], r[3], r[4], r[5], r[6]))
+            i += 1
 
 # -------------------------------------------------Usuwanie zamieszczonej oferty pracy-------------------------
 
@@ -229,19 +235,19 @@ def zamieszczone():
         widget.destroy()
     bgr.destroy()
     
-    search_l = Label(rt, text="OrderBy: ", font=(
+    search_l = Label(rt, text="Sortuj po: ", font=(
         'normal', 18), bg="#ffffff")
     search_l.grid(row=0, column=0, padx=10, pady=10)
     global search_d
     search_d = ttk.Combobox(rt, width=12, font=(
         'normal', 18), state='readonly')
-    search_d['values'] = ('Zaznacz', 'JobRole', 'JobType')
+    search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy',"Kwalifikacje","Doświadczenie" ,"Wynagrodzenie")
     search_d.current(0)
     search_d.grid(row=0, column=2, padx=0, pady=10)
     search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'),
                     bg="#00b9ed", fg="#ffffff", command=lambda: sortujWszystko(table))
     search.grid(row=0, column=3, padx=10, pady=10, ipadx=15)
-    dlt = Button(rt, text="Skasuj", font=('normal', 12, 'bold'),
+    dlt = Button(rt, text="Usuń", font=('normal', 12, 'bold'),
                  bg="#00b9ed", fg="#ffffff", command=lambda: usuwaniePracy(table))
     dlt.grid(row=0, column=4, padx=10, pady=10, ipadx=5)
     
@@ -253,10 +259,10 @@ def zamieszczone():
     scx.pack(side="bottom", fill="x")
     scy.pack(side="right", fill="y")
     table.heading("JID", text="ID_oferty_pracy")
-    table.heading("JobRole", text="Zakres_obowiaz.")
-    table.heading("JobType", text='Typ_pracy')
+    table.heading("JobRole", text="Stanowisko")
+    table.heading("JobType", text='Wymiar Pracy')
     table.heading("Qualification", text='Kwalifikacje')
-    table.heading("MinExp", text='Min_doswiadcze.')
+    table.heading("MinExp", text='Doświadczenie')
     table.heading("Salary", text="Wynagrodzenie")
     
     table['show'] = 'headings'
@@ -282,7 +288,7 @@ def aplikowania():
         widget.destroy()
     bgr.destroy()
 
-    search_l = Label(rt, text="OrderBy: ", font=('normal', 18), bg="#ffffff")
+    search_l = Label(rt, text="Sortuj po: ", font=('normal', 18), bg="#ffffff")
     search_l.grid(row=0, column=0, padx=10, pady=10)
     global search_d
     search_d = ttk.Combobox(rt, width=12, font=(

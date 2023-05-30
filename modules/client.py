@@ -30,29 +30,26 @@ def logi(root):
     l.log(root)
 	
 def aplikuj(table):
-   
     selectedindex = table.focus()    
     selectedvalues = table.item(selectedindex, 'values')
     ajid = selectedvalues[0]
     chkquery = f'SELECT * from mydb.application where cid={clicid} and jid={ajid}'
-    mycon = sql.connect(host='localhost', user='root',
-                        passwd=user_pwd, database='mydb')
+    mycon = sql.connect(host='localhost', user='root', passwd=user_pwd, database='mydb')
     cur = mycon.cursor()
     cur.execute(chkquery)
     tempbuff = cur.fetchall()
     mycon.close()
-    if(tempbuff):
+    if tempbuff:
         messagebox.showinfo('Uwaga', 'Wyglada na to, że już zlozyles wniosek o te prace')
     else:
         queryapplyjob = f'Insert into application values(NULL,(select rid from mydb.job where job.jid={ajid}),{ajid},{clicid})'
-        mycon = sql.connect(host='localhost', user='root',
-                            passwd=user_pwd, database='mydb')
+        mycon = sql.connect(host='localhost', user='root', passwd=user_pwd, database='mydb')
         cur = mycon.cursor()
         cur.execute(queryapplyjob)
         mycon.commit()
         mycon.close()
-        messagebox.showinfo('Twoj wniosek zostal zlozony')
-	
+        messagebox.showinfo('Potwierdzenie', 'Twój wniosek zostal zlozony')
+
 		
 def usun(table):
     selectedindex = table.focus()
@@ -65,7 +62,7 @@ def usun(table):
         f'delete from mydb.application where aid={aaid}')
     mycon.commit()
     mycon.close()
-    messagebox.showinfo('Twój wniosek został złożony')
+    messagebox.showinfo('Uwaga' 'Twój wniosek zostanie usunięty')
     moje_aplikacje()
 	
 def sortuj_wszystkiePrace(table):
@@ -80,7 +77,7 @@ def sortuj_wszystkiePrace(table):
         criteria = "CompanyLocation"
     elif criteria == "Kwalifikacje":
         criteria = "Qualification"
-    elif criteria == "Minimalne Doświadczenie":
+    elif criteria == "Doświadczenie":
         criteria = "MinExp"
     elif criteria == "Wynagrodzenie":
         criteria = "Salary"
@@ -115,7 +112,7 @@ def sortuj_mojeAplikacje(table):
         criteria = "CompanyLocation"
     elif criteria == "Kwalifikacje":
         criteria = "Qualification"
-    elif criteria == "Minimalne Doświadczenie":
+    elif criteria == "Doświadczenie":
         criteria = "MinExp"
     elif criteria == "Wynagrodzenie":
         criteria = "Salary"
@@ -184,7 +181,7 @@ def dos_prace():
     global search_d
     search_d = ttk.Combobox(rt, width=12, font=(
         'normal', 18), state='readonly')
-    search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy',"Lokalizacja firmy","Kwalifikacje","Minimalne Doświadczenie" ,"Wynagrodzenie")
+    search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy',"Lokalizacja firmy","Kwalifikacje","Doświadczenie" ,"Wynagrodzenie")
     search_d.current(0)
     search_d.grid(row=0, column=2, padx=0, pady=10)
     search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'),
@@ -208,7 +205,7 @@ def dos_prace():
     table.heading("CompanyName", text='Nazwa Firmy')
     table.heading("CompanyLocation", text="Lokalizacja firmy")
     table.heading("Qualification", text='Kwalifikacje')
-    table.heading("MinExp", text='Minimalne Doświadczenie')
+    table.heading("MinExp", text="Doświadczenie")
     table.heading("Salary", text="Wynagrodzenie")
 
     table['show'] = 'headings'
@@ -243,7 +240,7 @@ def moje_aplikacje():
     global search_d
     search_d = ttk.Combobox(rt, width=12, font=(
         'normal', 18), state='readonly')
-    search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy',"Lokalizacja firmy","Kwalifikacje","Minimalne Doświadczenie" ,"Wynagrodzenie")
+    search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy',"Lokalizacja firmy","Kwalifikacje","Doświadczenie" ,"Wynagrodzenie")
     search_d.current(0)
     search_d.grid(row=0, column=2, padx=0, pady=10)
     search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'), bg="#00b9ed",
@@ -267,7 +264,7 @@ def moje_aplikacje():
     table.heading("CompanyName", text='Nazwa Firmy')
     table.heading("CompanyLocation", text="Lokalizacja firmy")
     table.heading("Qualification", text='Kwalifikacje')
-    table.heading("MinExp", text='Minimalne Doświadczenie')
+    table.heading("MinExp", text='Doświadczenie')
     table.heading("Salary", text="Wynagrodzenie")
     table['show'] = 'headings'
 
