@@ -42,7 +42,7 @@ def aplikuj(table):
     tempbuff = cur.fetchall()
     mycon.close()
     if(tempbuff):
-        messagebox.showinfo('Uwaga', 'Wygląda na to, że już złożyłeś wniosek o tę pracę')
+        messagebox.showinfo('Uwaga', 'Wyglada na to, że już zlozyles wniosek o te prace')
     else:
         queryapplyjob = f'Insert into application values(NULL,(select rid from mydb.job where job.jid={ajid}),{ajid},{clicid})'
         mycon = sql.connect(host='localhost', user='root',
@@ -51,7 +51,7 @@ def aplikuj(table):
         cur.execute(queryapplyjob)
         mycon.commit()
         mycon.close()
-        messagebox.showinfo('Twój wniosek został złożony')
+        messagebox.showinfo('Twoj wniosek zostal zlozony')
 	
 		
 def usun(table):
@@ -70,7 +70,22 @@ def usun(table):
 	
 def sortuj_wszystkiePrace(table):
     criteria = search_d.get()
-    if(criteria == "Select"): 
+    if criteria == "Stanowisko":
+        criteria = "JobRole"
+    elif criteria == "Wymiar Pracy":
+        criteria = "JobType"
+    elif criteria == "Nazwa Firmy":
+        criteria = "CompanyName"
+    elif criteria == "Lokalizacja firmy":
+        criteria = "CompanyLocation"
+    elif criteria == "Kwalifikacje":
+        criteria = "Qualification"
+    elif criteria == "Minimalne Doświadczenie":
+        criteria = "MinExp"
+    elif criteria == "Wynagrodzenie":
+        criteria = "Salary"
+    
+    if criteria == "Wybierz":
         pass
     else:
         table.delete(*table.get_children())
@@ -87,9 +102,25 @@ def sortuj_wszystkiePrace(table):
                 r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]))
             i += 1
 
+
 def sortuj_mojeAplikacje(table):
     criteria = search_d.get()
-    if(criteria == "Select"):
+    if criteria == "Stanowisko":
+        criteria = "JobRole"
+    elif criteria == "Wymiar Pracy":
+        criteria = "JobType"
+    elif criteria == "Nazwa Firmy":
+        criteria = "CompanyName"
+    elif criteria == "Lokalizacja firmy":
+        criteria = "CompanyLocation"
+    elif criteria == "Kwalifikacje":
+        criteria = "Qualification"
+    elif criteria == "Minimalne Doświadczenie":
+        criteria = "MinExp"
+    elif criteria == "Wynagrodzenie":
+        criteria = "Salary"
+    
+    if criteria == "Wybierz":
         pass
     else:
         table.delete(*table.get_children())
@@ -105,7 +136,8 @@ def sortuj_mojeAplikacje(table):
             table.insert('', i, text="", values=(
                 r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]))
             i += 1
-
+			
+			
 def wyswietl_prace(table):
     mycon = sql.connect(host='localhost', user='root',
                         passwd=user_pwd, database='mydb')
@@ -119,7 +151,8 @@ def wyswietl_prace(table):
         table.insert('', i, text="", values=(
             r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7]))
         i += 1
-
+		
+		
 def wyswietl_aplikacje(table):
     mycon = sql.connect(host='localhost', user='root',
                         passwd=user_pwd, database='mydb')
@@ -133,7 +166,7 @@ def wyswietl_aplikacje(table):
     for x in applications:
         table.insert('', i, text="", values=(
             x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7]))
-        i += 1	
+        i += 1
 
 def dos_prace():
     mycon = sql.connect(host='localhost', user='root',
@@ -145,13 +178,13 @@ def dos_prace():
         widget.destroy()
     bgr.destroy()
 
-search_l = Label(rt, text="Sortuj po : ", font=(
+    search_l = Label(rt, text="Sortuj po : ", font=(
         'normal', 18), bg="#ffffff")
     search_l.grid(row=0, column=0, padx=10, pady=10)
     global search_d
     search_d = ttk.Combobox(rt, width=12, font=(
         'normal', 18), state='readonly')
-    search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy')
+    search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy',"Lokalizacja firmy","Kwalifikacje","Minimalne Doświadczenie" ,"Wynagrodzenie")
     search_d.current(0)
     search_d.grid(row=0, column=2, padx=0, pady=10)
     search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'),
@@ -160,9 +193,9 @@ search_l = Label(rt, text="Sortuj po : ", font=(
 
     apl = Button(rt, text="Aplikuj", font=('normal', 12, 'bold'),
                  bg="#00b9ed", fg="#ffffff", command=lambda: aplikuj(table))
-    apl.grid(row=0, column=4, padx=10, pady=10, ipadx=5)	
-	
-	scx = Scrollbar(tab, orient="horizontal")
+    apl.grid(row=0, column=4, padx=10, pady=10, ipadx=5)
+
+    scx = Scrollbar(tab, orient="horizontal")
     scy = Scrollbar(tab, orient="vertical")
 
     table = ttk.Treeview(tab, columns=('JID', 'JobRole', 'JobType', 'CompanyName', 'CompanyLocation', 'Qualification', 'MinExp', 'Salary'),
@@ -177,15 +210,15 @@ search_l = Label(rt, text="Sortuj po : ", font=(
     table.heading("Qualification", text='Kwalifikacje')
     table.heading("MinExp", text='Minimalne Doświadczenie')
     table.heading("Salary", text="Wynagrodzenie")
-	
-	table['show'] = 'headings'
+
+    table['show'] = 'headings'
 
     scx.config(command=table.xview)
     scy.config(command=table.yview)
-	
-	table.column("JID", width=100)
+
+    table.column("JID", width=100)
     table.column("JobRole", width=150)
-	table.column("JobType", width=150)
+    table.column("JobType", width=150)
     table.column("CompanyName", width=150)
     table.column("CompanyLocation", width=150)
     table.column("Qualification", width=100)
@@ -194,7 +227,7 @@ search_l = Label(rt, text="Sortuj po : ", font=(
     wyswietl_prace(table)
     table.pack(fill="both", expand=1)
     mycon.close()
-	
+
 def moje_aplikacje():
     mycon = sql.connect(host='localhost', user='root',
                         passwd=user_pwd, database='mydb')
@@ -204,12 +237,13 @@ def moje_aplikacje():
     for widget in tab.winfo_children():
         widget.destroy()
     bgr.destroy()
-	
+
     search_l = Label(rt, text="Sortuj po : ", font=('normal', 18), bg="#ffffff")
     search_l.grid(row=0, column=0, padx=10, pady=10)
-    global search_d	
-	
-	search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy')
+    global search_d
+    search_d = ttk.Combobox(rt, width=12, font=(
+        'normal', 18), state='readonly')
+    search_d['values'] = ('Wybierz', 'Stanowisko', 'Wymiar Pracy', 'Nazwa Firmy',"Lokalizacja firmy","Kwalifikacje","Minimalne Doświadczenie" ,"Wynagrodzenie")
     search_d.current(0)
     search_d.grid(row=0, column=2, padx=0, pady=10)
     search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'), bg="#00b9ed",
@@ -219,16 +253,15 @@ def moje_aplikacje():
     dlt = Button(rt, text="Usuń", font=('normal', 12, 'bold'),
                  bg="#00b9ed", fg="#ffffff", command=lambda: usun(table))
     dlt.grid(row=0, column=4, padx=10, pady=10, ipadx=5)
-	
-	scx = Scrollbar(tab, orient="horizontal")
+
+    scx = Scrollbar(tab, orient="horizontal")
     scy = Scrollbar(tab, orient="vertical")
 
     table = ttk.Treeview(tab, columns=('AID', 'JobRole', 'JobType', 'CompanyName', 'CompanyLocation', 'Qualification', 'MinExp', 'Salary'),
                          xscrollcommand=scx.set, yscrollcommand=scy.set)
     scx.pack(side="bottom", fill="x")
     scy.pack(side="right", fill="y")
-	
-	table.heading("AID", text="ID")
+    table.heading("AID", text="ID")
     table.heading("JobRole", text="Stanowisko")
     table.heading("JobType", text="Wymiar pracy")
     table.heading("CompanyName", text='Nazwa Firmy')
@@ -252,8 +285,10 @@ def moje_aplikacje():
     wyswietl_aplikacje(table)
     table.pack(fill="both", expand=1)
     mycon.close()
-	
-def client(root, email1):
+
+
+# ---------------------------------------------------------------------------------------------------------------------------
+def cli(root, email1):
     global email
     email = email1
     bg = Frame(root, width=1050, height=700)
@@ -264,9 +299,8 @@ def client(root, email1):
     bg.load = PhotoImage(file=f'elements\\bg{gen}.png')
     img = Label(root, image=bg.load)
     img.place(x=0, y=0)
-	
-	#Góra 
-	
+
+    # Navbar
     nm = Label(root, text=f'{name}', font=(
         'normal', 36, 'bold'), bg="#ffffff", fg="#0A3D62")
     nm.place(x=300, y=50)
@@ -276,10 +310,9 @@ def client(root, email1):
     bn = Button(root, text="Wyloguj się", font=('normal', 20),
                 bg="#b32e2e", fg="#ffffff", command=lambda: logi(root))
     bn.place(x=800, y=75)
-	
-	#Lewa
-	
-	lf = Frame(root, width=330, height=440, bg="#ffffff")
+
+    # Left
+    lf = Frame(root, width=330, height=440, bg="#ffffff")
     lf.place(x=60, y=240)
     pj = Button(lf, text="Dostępne Prace", font=(
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=dos_prace)
@@ -287,11 +320,9 @@ def client(root, email1):
     ap = Button(lf, text="Moje aplikacje", font=(
         'normal', 20), bg="#b32e2e", fg="#ffffff", command=moje_aplikacje)
     ap.grid(row=1, column=0, padx=60, pady=70)
-	
-	#Prawo
-	
-	
-	global rt, tab, bgr
+
+    # Right
+    global rt, tab, bgr
     rt = Frame(root, width=540, height=420, bg="#ffffff")
     rt.place(x=450, y=220)
     tab = Frame(root, bg="#FFFFFF")
@@ -300,4 +331,10 @@ def client(root, email1):
     bgrf.load = PhotoImage(file="elements\\bgr.png")
     bgr = Label(root, image=bgrf.load, bg="#00b9ed")
     bgr.place(x=440, y=210)
-	
+
+# root = Tk()
+# root.geometry("1050x700")
+# root.title("Client")
+# root.resizable(0, 0)
+# cli()
+# root.mainloop()
