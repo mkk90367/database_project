@@ -50,7 +50,7 @@ def rejestracjaDlaRekrutera(root):
     name_l = Label(r2, text="Nazwa : ", bg='#FFFFFF', fg="#00B9ED",
                    font=('normal', 20, 'bold'))
     name_l.place(x=100, y=250)
-    name = Entry(r2, placeholder='Wprowadz imie i nazwisko...', width=20)
+    name = Entry(r2, placeholder='Wprowadź imię i nazwisko', width=20)
     name.place(x=290, y=250)
 
     email_l = Label(r2, text="Email : ", bg='#FFFFFF', fg="#00B9ED",
@@ -62,13 +62,13 @@ def rejestracjaDlaRekrutera(root):
     pwd_l = Label(r2, text="Haslo : ", bg='#FFFFFF', fg="#00B9ED",
                   font=('normal', 20, 'bold'))
     pwd_l.place(x=100, y=350)
-    pwd = Entry(r2, placeholder='Haslo', show="*", width=20)
+    pwd = Entry(r2, placeholder='Hasło', show="*", width=20)
     pwd.place(x=290, y=350)
 
     con_pwd_l = Label(r2, text="Potwierdz : ", bg='#FFFFFF', fg="#00B9ED",
                       font=('normal', 20, 'bold'))
     con_pwd_l.place(x=100, y=400)
-    cpwd = Entry(r2, placeholder='Potwierdz haslo', show="*", width=20)
+    cpwd = Entry(r2, placeholder='Potwierdź hasło', show="*", width=20)
     cpwd.place(x=290, y=400)
 
     r2.bn = PhotoImage(file="elements\\next1.png")
@@ -111,7 +111,7 @@ def sprawdzenieRekrutera(root):
                 messagebox.showinfo('UWAGA!', 'HASLA NIE PASUJA')
 
     else:
-        messagebox.showinfo('UWAGA!', 'WSZYSTKIE POLA MUSZA BYC WYPELNIONE')
+        messagebox.showinfo('UWAGA!', 'Uwaga wypełnij wyszystkie obowiązkowe pola')
 
 def dokonczenieRekrutera(root):
     print("witaj ", name1, ", Uzupelnijmy twoj profil")
@@ -139,7 +139,7 @@ def dokonczenieRekrutera(root):
     company_l = Label(r3, text="Firma : ", bg='#FFFFFF', fg="#00B9ED",
                       font=('normal', 20, 'bold'))
     company_l.place(x=100, y=300)
-    company = Entry(r3, placeholder='Firma', width=20)
+    company = Entry(r3, placeholder='Nazwa Firmy', width=20)
     company.place(x=290, y=300)
 
     loc_l = Label(r3, text="Lokalizacja : ", bg='#FFFFFF', fg="#00B9ED",
@@ -183,7 +183,7 @@ def wyslijRekruteraDoBazy(root):
             pass
 
     else:
-        messagebox.showinfo('UWAGA!', 'WSZYSTKIE POLA MUSZA BYC WYPELNIONE')
+        messagebox.showinfo('UWAGA!', 'Uwaga wypełnij wyszystkie obowiązkowe pola')
 
 def rejestracjaDlaKlienta(root):
     global name, email, pwd, cpwd
@@ -259,7 +259,7 @@ def sprawdzenieKlienta(root):
                 messagebox.showinfo('UWAGA!', 'HASLA NIE PASUJA')
 
     else:
-        messagebox.showinfo('UWAGA!', 'WSZYSTKIE POLA MUSZA BYC WYPELNIONE')
+        messagebox.showinfo('UWAGA!', 'Uwaga wypełnij wyszystkie obowiązkowe pola')
 
 def dokonczenieKlienta(root):
     print("hello ", name1, ", Uzupelnijmy twoj profil")
@@ -276,8 +276,8 @@ def dokonczenieKlienta(root):
     style.configure("TRadiobutton", background="white",
                     foreground="#696969", font=("arial", 16, "bold"))
 
-    gender_l = Label(r3, text="Plec : ", bg='#FFFFFF', fg="#00B9ED",
-                     font=('normal', 20, 'bold'))
+    gender_l = Label(r3, text="Płeć : ", bg='#FFFFFF', fg="#00B9ED",
+                     font=('normal', 18, 'bold'))
     gender_l.place(x=100, y=200)
     ttk.Radiobutton(r3, text="Mezcz.", value="M", variable=gender).place(
         x=300, y=200)
@@ -285,33 +285,33 @@ def dokonczenieKlienta(root):
         x=400, y=200)
 
     age_l = Label(r3, text="Wiek : ", bg='#FFFFFF', fg="#00B9ED",
-                  font=('normal', 20, 'bold'))
+                  font=('normal', 18, 'bold'))
     age_l.place(x=100, y=250)
     age = Entry(r3, placeholder='Wiek', width=20)
     age.place(x=290, y=250)
 
     loc_l = Label(r3, text="Lokalizacja : ", bg='#FFFFFF', fg="#00B9ED",
-                  font=('normal', 20, 'bold'))
+                  font=('normal', 18, 'bold'))
     loc_l.place(x=100, y=300)
     loc = Entry(r3, placeholder='Lokalizacja', width=20)
     loc.place(x=290, y=300)
 
-    workxp_l = Label(r3, text="Doswiadczenie : ", bg='#FFFFFF', fg="#00B9ED",
-                     font=('normal', 20, 'bold'))
+    workxp_l = Label(r3, text="Doświadczenie : ", bg='#FFFFFF', fg="#00B9ED",
+                     font=('normal', 18, 'bold'))
     workxp_l.place(x=100, y=350)
-    workxp = Entry(r3, placeholder='Doswiad. w pracy(lata)', width=20)
+    workxp = Entry(r3, placeholder='Doświad. w pracy(lata)', width=20)
     workxp.place(x=290, y=350)
 
-    qualification_l = Label(r3, text="Kwalifikacje : ",
-                            bg='#FFFFFF', fg="#00B9ED", font=('normal', 20, 'bold'))
+    qualification_l = Label(r3, text="Wykształcenie : ",
+                            bg='#FFFFFF', fg="#00B9ED", font=('normal', 18, 'bold'))
     qualification_l.place(x=100, y=400)
     qualification = Entry(r3, placeholder='Dyplom inzyniera itp', width=20)
     qualification.place(x=290, y=400)
 
-    skills_l = Label(r3, text="Umiejetnosci : ", bg='#FFFFFF',
-                     fg="#00B9ED", font=('normal', 20, 'bold'))
+    skills_l = Label(r3, text="Umiejetności : ", bg='#FFFFFF',
+                     fg="#00B9ED", font=('normal', 18, 'bold'))
     skills_l.place(x=100, y=450)
-    skills = Entry(r3, placeholder='oddzielone przecinkiem', width=20)
+    skills = Entry(r3, placeholder='Oddziel przecinkami :)', width=20)
     skills.place(x=290, y=450)
 
     r3.bn = PhotoImage(file="elements\\reg.png")
@@ -355,4 +355,4 @@ def wyslijKlientaDoBazy(root):
             pass
 
     else:
-        messagebox.showinfo('UWAGA!', 'WSZYSTKIE POLA MUSZA BYC WYPELNIONE')
+        messagebox.showinfo('UWAGA!', 'Uwaga wypełnij wyszystkie obowiązkowe pola')
