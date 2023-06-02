@@ -158,7 +158,7 @@ def przekazOfertePracy():
             except:
                 pass
     else:
-        messagebox.showinfo('UWAGA!', 'Uwaga wypełnij wyszystkiego obowiązkowe pola')
+        messagebox.showinfo('UWAGA!', 'Uwaga wypełnij wyszystkie obowiązkowe pola')
 
 # ----------------------------------------------Zapytanie dotyczace opublikowanych ofert pracy-----------------
 
@@ -293,7 +293,7 @@ def aplikowania():
     global search_d
     search_d = ttk.Combobox(rt, width=12, font=(
         'normal', 18), state='readonly')
-    search_d['values'] = ('Zaznacz', 'Zakres_obowiaz.', 'Nazwa_aplikanta', 'Lokalizacja')
+    search_d['values'] = ('Zaznacz', 'Zakres_obowiaz.', 'Nazwa_aplikanta','Email','Wiek','Lokalizacja','Płec', 'Doświadczenie','Umiejetnosci','Kwalifikacje')
     search_d.current(0)
     search_d.grid(row=0, column=2, padx=10, pady=10)
     search = Button(rt, text="Sortuj", font=('normal', 12, 'bold'),
@@ -313,8 +313,8 @@ def aplikowania():
     table.heading("CEmail", text='Email')
     table.heading("CAge", text='Wiek')
     table.heading("CLocation", text='Lokalizacja')
-    table.heading("CGender", text='Plec')
-    table.heading("CExp", text='Doswiadczenie')
+    table.heading("CGender", text='Płec')
+    table.heading("CExp", text='Doświadczenie')
     table.heading("CSkills", text='Umiejetnosci')
     table.heading("CQualification", text='Kwalifikacje')
 
@@ -357,14 +357,29 @@ def pokazAplikantow(table):
 def sortujAplikantow(table):
     kryteria = search_d.get()
     if kryteria == "Zakres_obowiaz.":
-       kryteria = "JobRole"
+        kryteria = "JobRole"
     elif kryteria == "Nazwa_aplikanta":
-       kryteria = "CName"
+        kryteria = "CName"
+    elif kryteria == "Email":
+        kryteria = "CEmail"
+    elif kryteria == "Wiek":
+        kryteria = "CAge"
     elif kryteria == "Lokalizacja":
-       kryteria = "CLocation"    
-    if(kryteria == "Zaznacz"):
+        kryteria = "CLocation"
+    elif kryteria == "Płec":
+        kryteria = "CGender"
+    elif kryteria == "Doświadczenie":
+        kryteria = "CExp"
+    elif kryteria == "Umiejetnosci":
+        kryteria = "CSkills"
+    elif kryteria == "Kwalifikacje":
+        kryteria = "CQualification"
+    
+    if kryteria == "Zaznacz":
         pass
     else:
+        pass
+
         table.delete(*table.get_children())
         mycon = sql.connect(host='localhost', user='root',
                             passwd=user_pwd, database='mydb')
